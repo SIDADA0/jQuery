@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    var $div1 = $('#div1');
+    var oDiv = document.getElementById('div1');
+    $(function () {
+        console.log($('#div1'));
+    });
+    $(function () {
+        $('#div1').attr('xx','yy');
+    });
+    $('#div1').on('click',function () {
+        $(this).toggleClass('aa');
+    });
+
+    $(this).css('width',function () {
+        var w = 1100+2002;
+        return w;
+    })
+
+    console.log('width='+$('#div1').outerWidth());
+
+    $('#div1').text('right');
+    $('li').eq(3).css('background-color','red');
+    $('li:eq(2)').css('background-color','blue');
+
+    $(function () {
+        $('#all').on('click',function () {
+            $('input[name="hobby"]').prop('checked','checked');
+        });
+        $('#no').on('click',function () {
+            $('input[name="hobby"]').removeProp('checked');
+        });
+        $('#reverse').oo('click',function () {
+            $('input[name="hobby"]').each(function (index,elem) {
+                this.checked = ! this.checked;
+            });
+        })
+    });
+
+    $(function () {
+        $('#search').on('keyup',function () {
+            $('#list li').css('background','transparent');
+            if(this.value !=''){
+                $('#list li:contains('+this.value+')').css('background','#f00');
+            }
+        })
+    });
+
+    //选项卡
+    $(function () {
+        $('#menu item').on('click',function () {
+            $(this).addClass('menu-selected').siblings().removeClass('menu-selected');
+            $('#content div').eq($(this).index()).addClass('content-elected').siblings().remove('content-selected');
+        });
+    });
+
+    //可见
+    $(function () {
+//        $('#ull').find('.aa').css('background','#f00');
+
+        var $div1 = $('#div1');
+        $div1.on('click',function () {
+            alert(123);
+        }).hover(function () {
+            console.log('鼠标移除');
+        } ,function () {
+            console.log('out');
+        });
+    });
+
+    $(function () {
+        var $box = $('#box');
+
+        $('#hide').on('click',function () {
+            $box.hide('slow');
+        });
+        $('#show').on('click',function () {
+            $box.show('fast');
+        });
+        $('#toggle').on('click',function () {
+            $box.toggle(2000);
+        });
+        $('#fadeIn').on('click',function () {
+            $box.fadeIn(2000);
+        });
+        $('#fadeOut').on('click',function () {
+            $box.fadeOut(2000);
+        });
+        $('#slideDown').on('click',function () {
+            $box.slideDown(2000);
+        });
+        $('#slideUp').on('click',function () {
+            $box.slideUp(2000);
+        });
+        $('#animate').on('click',function () {
+            $box.animate({
+                width:300,
+                height:400
+            },1000,'easeInoutBouce',function () {
+                alert(123);
+            });
+        });
+        $('#animated').on('click',function () {
+        $('#box:animated').css('background','#0ff')
+        })
+    })
+
+    $(function () {
+        $('add').on('click',function () {
+            $('#select1 option:selected').appendTo($('#select2'));
+        });
+        $('add_all').on('click',function () {
+            $('#select1 option').appendTo($('#select2'));
+        });
+        $('#remove').on('click',function () {
+            $('#select2 option:selected').appendTo($('#select1'));
+        });
+        $("#remove_all").on('cclick',function () {
+            $('#select2 option').appendTo($('#select1'));
+        });
+        $('#select1').on('dblclick','option',function () {
+            $(this).appendTo($('#select2'));
+        });
+        $('#select2').on('click','option',function () {
+            $(this).appendTo($('#select1'));
+        });
+    })
+
+
+    $(function () {
+        $('tbody tr:even').addClass('even');
+        $('tbody tr:odd').addClass('odd');
+
+        $('tbody tr').on('click',function () {
+            $(this).addClass('selected').siblings().removeClass('selected').end().find('input[name = "chioce"]')
+                .prop('checked','checked');
+        });
+    });
+
+    $(function () {
+        $('#filterName').oon('keyup',function () {
+            $('tbody tr').hide().children().filter('td:contains('+this.value+')').parent().show();
+        });
+    });
+    $(function () {
+        $('#parent').on('click',function () {
+            $(this).nextUntil('.parent').children('td').slideToggle(2000);
+        });
+    });
+
+    $(function () {
+
+        if($.cookie('skin')) {
+            changeSkin($.cookie('skin'));
+        }
+
+        $('#skin li').on('click',function () {
+            changeSkin($(this).attr('id'));
+            $.cookie('skin',$(this.attr('id'),{expires:40}))
+        });
+
+       function  changeSkin(id) {
+           $('#'+id).addClass('selected').siblings().removeClass('selected');
+           $('#cssfile').attr('href','css/'+id+'.css');
+       }
+    });
+    //???????????????????????????????
+</script>
+</body>
+</html>
