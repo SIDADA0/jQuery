@@ -17,15 +17,3 @@
 		  $('tbody tr').hide().children().filter('td:contains'+this.value+')').parent.show();
       });
   });
-
-
-
-
-
-
-
-
-
-
-
-

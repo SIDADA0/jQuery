@@ -15,4 +15,4 @@
          //再简化:
 		 //$('tbody>tr:has(:checked)').addClass('selected');
 
-	})
+	});

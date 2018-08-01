@@ -5,4 +5,4 @@
 		}).blur(function(){
 			  $(this).removeClass("focus");
 		});
-    })
+    });

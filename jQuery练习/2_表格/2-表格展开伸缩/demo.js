@@ -11,3 +11,4 @@ $(function () {
 		$(this).netUntil('.parent').children('td').slideToggle(1000);
     });
 });
+

@@ -9,4 +9,4 @@
 		}).blur(function(){
 			 $(this).removeClass("focus").val(this.value==""?this.defaultValue:this.value);
 		});
-    })
+    });
